@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "265c6ce4-66d1-4280-97c2-588e11ebb90c",
+		"name": "MCD L2 Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13427478"
+	},
+	"item": [
+		{
+			"name": "user-s-api",
+			"item": [
+				{
+					"name": "get all user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{userhost}}/api/users",
+							"host": [
+								"{{userhost}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{userhost}}/api/user/:id",
+							"host": [
+								"{{userhost}}"
+							],
+							"path": [
+								"api",
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "task-s-api",
+			"item": [
+				{
+					"name": "get task",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "client_id",
+								"value": "b1a69eaa073f4fecbd1541fdb6c00e4b",
+								"type": "text"
+							},
+							{
+								"key": "client_secret",
+								"value": "e39B6cf42c38439AaE4393079090FFE4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{taskhost}}/api/task/20",
+							"host": [
+								"{{taskhost}}"
+							],
+							"path": [
+								"api",
+								"task",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all tasks for owner",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "client_id",
+								"value": "b1a69eaa073f4fecbd1541fdb6c00e4b",
+								"type": "text"
+							},
+							{
+								"key": "client_secret",
+								"value": "e39B6cf42c38439AaE4393079090FFE4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{taskhost}}/api/tasks/:ownerId",
+							"host": [
+								"{{taskhost}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								":ownerId"
+							],
+							"variable": [
+								{
+									"key": "ownerId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "client_id",
+								"value": "b1a69eaa073f4fecbd1541fdb6c00e4b",
+								"type": "text"
+							},
+							{
+								"key": "client_secret",
+								"value": "e39B6cf42c38439AaE4393079090FFE4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"task3\",\r\n    \"description\": \"testing from postman\",\r\n    \"owner_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{taskhost}}/api/task",
+							"host": [
+								"{{taskhost}}"
+							],
+							"path": [
+								"api",
+								"task"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "todo-p-api",
+			"item": [
+				{
+					"name": "todo request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{todohost}}/api/task/1",
+							"host": [
+								"{{todohost}}"
+							],
+							"path": [
+								"api",
+								"task",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https request",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{todohttps}}/api/task/1",
+							"host": [
+								"{{todohttps}}"
+							],
+							"path": [
+								"api",
+								"task",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
